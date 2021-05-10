@@ -1,6 +1,7 @@
 import requests
 import json
 import numpy as np
+import time
 from datetime import date,datetime,timedelta
 
 day0=datetime.now()
@@ -40,5 +41,18 @@ def GetData():
 			print(i+1,new_result['sessions'][i]['center_id'],new_result['sessions'][i]['name'],new_result['sessions'][i]['min_age_limit'],new_result['sessions'][i]['available_capacity'],new_result['sessions'][i]['fee_type'],new_result['sessions'][i]['vaccine'])
 		print("Total sessions : ",num1)
 
-GetData()
 
+
+
+
+def loop1():
+	loop2()
+
+def loop2():
+			
+	GetData()
+	time.sleep(32)
+	loop1()
+
+
+loop1()

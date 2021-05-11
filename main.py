@@ -11,7 +11,6 @@ day3=day0+timedelta(3)
 day4=day0+timedelta(4)
 day5=day0+timedelta(5)
 day6=day0+timedelta(6)
-print(day0)
 
 Week=np.array([day0,day1,day2,day3,day4,day5,day6])
 
@@ -29,21 +28,23 @@ def GetData():
 		result = requests.get(url, headers=headers)
 		new_result=result.json()
 		num=len(new_result['sessions'])
+		# print("\n"new_result['sessions'][0]['name'])
 		modifiedlist = [""]
 		if num>0:
 			print('\n')
 			print("Date : ",Date)
 		num1=num
 		for i in range(num):
-			print(i+1,new_result['sessions'][i]['center_id'],new_result['sessions'][i]['name'],new_result['sessions'][i]['min_age_limit'],new_result['sessions'][i]['available_capacity'],new_result['sessions'][i]['fee_type'],new_result['sessions'][i]['vaccine'])
+			# print(i+1,new_result['sessions'][i]['center_id'],new_result['sessions'][i]['name'],new_result['sessions'][i]['min_age_limit'],new_result['sessions'][i]['available_capacity'],new_result['sessions'][i]['fee_type'],new_result['sessions'][i]['vaccine'])
 			modifiedlist.append(i+1)
 			modifiedlist.append(new_result['sessions'][i]['center_id'])
-			modifiedlist.append()
-			modifiedlist.append()
-			modifiedlist.append()
-			modifiedlist.append()
+			modifiedlist.append(new_result['sessions'][i]['name'])
+			modifiedlist.append(new_result['sessions'][i]['min_age_limit'])
+			modifiedlist.append(new_result['sessions'][i]['available_capacity'])
+			modifiedlist.append(new_result['sessions'][i]['fee_type'])
+			modifiedlist.append(new_result['sessions'][i]['vaccine'])
 			dataB1=np.insert(dataB1,i,i+1)
-
+		print(modifiedlist)
 
 	NOA=len(dataB1)
 	print("\nDataBase:",dataB1)

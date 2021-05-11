@@ -11,6 +11,7 @@ day3=day0+timedelta(3)
 day4=day0+timedelta(4)
 day5=day0+timedelta(5)
 day6=day0+timedelta(6)
+print(day0)
 
 Week=np.array([day0,day1,day2,day3,day4,day5,day6])
 
@@ -20,7 +21,6 @@ data1 = 0
 def GetData():
 	global dataB1
 	global data1
-	
 	for x in range(7):
 		Date=Week[x].strftime('%d-%m-%Y')
 		
@@ -29,13 +29,19 @@ def GetData():
 		result = requests.get(url, headers=headers)
 		new_result=result.json()
 		num=len(new_result['sessions'])
-
+		modifiedlist = [""]
 		if num>0:
 			print('\n')
 			print("Date : ",Date)
 		num1=num
 		for i in range(num):
 			print(i+1,new_result['sessions'][i]['center_id'],new_result['sessions'][i]['name'],new_result['sessions'][i]['min_age_limit'],new_result['sessions'][i]['available_capacity'],new_result['sessions'][i]['fee_type'],new_result['sessions'][i]['vaccine'])
+			modifiedlist.append(i+1)
+			modifiedlist.append(new_result['sessions'][i]['center_id'])
+			modifiedlist.append()
+			modifiedlist.append()
+			modifiedlist.append()
+			modifiedlist.append()
 			dataB1=np.insert(dataB1,i,i+1)
 
 
@@ -62,8 +68,8 @@ def loop2():
 	loop1()
 
 
-loop1()
-#GetData()
+#loop1()
+GetData()
 
 
 

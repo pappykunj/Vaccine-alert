@@ -35,6 +35,7 @@ def GetData():
 			print("Date : ",Date)
 		else:
 			print(" NO data available");
+
 		num1=num
 		modifiedlist = []
 		for i in range(num):
@@ -48,6 +49,8 @@ def GetData():
 			modifiedlist.append(new_result['sessions'][i]['vaccine'])
 		#	dataB1=np.insert(dataB1,i,i+1)
 		marray = np.array(modifiedlist)
+		
+
 		print(marray)
 		NOA=num1
 #	print("\nDataBase:",dataB1)

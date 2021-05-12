@@ -47,10 +47,8 @@ def GetData():
 			modifiedlist.append(new_result['sessions'][i]['fee_type'])
 			modifiedlist.append(new_result['sessions'][i]['vaccine'])
 		#	dataB1=np.insert(dataB1,i,i+1)
-	if num1>0:
-		print(new_result['sessions'][1])
-
-		print(modifiedlist)
+		marray = np.array(modifiedlist)
+		print(marray)
 		NOA=num1
 #	print("\nDataBase:",dataB1)
 		print("Total Sessions : ",NOA)

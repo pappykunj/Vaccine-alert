@@ -31,10 +31,9 @@ def GetData():
 		# print("\n"new_result['sessions'][0]['name'])
 		
 		if num>0:
-			print('\n')
-			print("Date : ",Date)
+			print("\nDate : ",Date)
 		else:
-			print(" NO data available");
+			print(" No data available");
 
 		num1=num
 		modifiedlist = []
@@ -48,10 +47,12 @@ def GetData():
 			modifiedlist.append(new_result['sessions'][i]['fee_type'])
 			modifiedlist.append(new_result['sessions'][i]['vaccine'])
 		#	dataB1=np.insert(dataB1,i,i+1)
-		marray = np.array(modifiedlist)
-		
-
-		print(marray)
+		marray =np. array(modifiedlist)
+		marray =marray.reshape(num,7)
+		print(','.join(str(item) for row in marray for item in row))
+		#print('\n'.join(str(row) for row in marray))
+		#print('\n'.join(map(str,marray)))
+		# print(marray)
 		NOA=num1
 #	print("\nDataBase:",dataB1)
 		print("Total Sessions : ",NOA)
@@ -63,20 +64,17 @@ def GetData():
 			print("Update available")
 			data1=NOA
 		else:
-			print("\n no new update ")
+			print("\n No new update ")
 
-def loop1():
-	loop2()
+# def loop1():
+#	loop2()
 
 def loop2():
 			
 	GetData()
 	time.sleep(64)#32
-	loop1()
+	loop2()
 
 
 #loop1()
 GetData()
-
-
-

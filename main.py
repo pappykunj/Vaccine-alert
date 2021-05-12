@@ -48,8 +48,8 @@ def GetData():
 			modifiedlist.append(new_result['sessions'][i]['fee_type'])
 			modifiedlist.append(new_result['sessions'][i]['vaccine'])
 		#	dataB1=np.insert(dataB1,i,i+1)
-		marray = np.array(modifiedlist)
-		
+		marray =np. array(modifiedlist)
+		marray =marray.reshape(num,7)
 
 		print(marray)
 		NOA=num1
@@ -65,18 +65,15 @@ def GetData():
 		else:
 			print("\n no new update ")
 
-def loop1():
-	loop2()
+# def loop1():
+#	loop2()
 
 def loop2():
 			
 	GetData()
 	time.sleep(64)#32
-	loop1()
+	loop2()
 
 
 #loop1()
 GetData()
-
-
-

@@ -29,11 +29,14 @@ def GetData():
 		new_result=result.json()
 		num=len(new_result['sessions'])
 		# print("\n"new_result['sessions'][0]['name'])
-		modifiedlist = [""]
+		
 		if num>0:
 			print('\n')
 			print("Date : ",Date)
+		else:
+			print(" NO data available");
 		num1=num
+		modifiedlist = []
 		for i in range(num):
 			# print(i+1,new_result['sessions'][i]['center_id'],new_result['sessions'][i]['name'],new_result['sessions'][i]['min_age_limit'],new_result['sessions'][i]['available_capacity'],new_result['sessions'][i]['fee_type'],new_result['sessions'][i]['vaccine'])
 			modifiedlist.append(i+1)
@@ -43,21 +46,23 @@ def GetData():
 			modifiedlist.append(new_result['sessions'][i]['available_capacity'])
 			modifiedlist.append(new_result['sessions'][i]['fee_type'])
 			modifiedlist.append(new_result['sessions'][i]['vaccine'])
-			dataB1=np.insert(dataB1,i,i+1)
+		#	dataB1=np.insert(dataB1,i,i+1)
+	if num1>0:
+		print(new_result['sessions'][1])
+
 		print(modifiedlist)
-
-	NOA=len(dataB1)
-	print("\nDataBase:",dataB1)
-	print("Total Sessions : ",NOA)
-	for i in range(NOA-1,-1,-1):
-		dataB1=np.delete(dataB1,i)
-	print(dataB1)
-	print(len(dataB1))
+		NOA=num1
+#	print("\nDataBase:",dataB1)
+		print("Total Sessions : ",NOA)
+#	for i in range(NOA-1,-1,-1):
+#	print(dataB1)
+#	print(len(dataB1))
 	
-
-	if NOA!=data1:
-		print("Update available")
-		data1=NOA
+		if NOA!=data1:
+			print("Update available")
+			data1=NOA
+		else:
+			print("\n no new update ")
 
 def loop1():
 	loop2()
